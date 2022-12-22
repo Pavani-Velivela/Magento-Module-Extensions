@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>    
+
+      <add id="Born_GeoIp::born" 
+            title="GeoIp" 
+            module="Born_GeoIp" 
+            sortOrder="90"
+            parent="Born_Born::born" 
+            resource="Born_GeoIp::born" />
+ 
+          <add id="Born_GeoIp::countrymapping" 
+            title="Country Mapping" 
+            module="Born_GeoIp" 
+            sortOrder="90"
+            action="geoip/country/index"
+            parent="Born_GeoIp::born"
+            resource="Born_GeoIp::countrymapping" />
+
+          <add id="Born_GeoIp::currencymapping" 
+            title="Currency Mapping" 
+            module="Born_GeoIp" 
+            sortOrder="90"
+            action="geoip/currency/index"
+            parent="Born_GeoIp::born"
+            resource="Born_GeoIp::currencymapping" />
+
+          
+     
+      <add id="Born_GeoIp::configuration" 
+          title="Configuration" 
+          module="Born_GeoIp" 
+          sortOrder="99" parent="Born_GeoIp::born" 
+          action="adminhtml/system_config/edit/section/geoip" 
+          resource="Born_GeoIp::configuration"/> 
+   
+    </menu>
+</config>
+
+
+

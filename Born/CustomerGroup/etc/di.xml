@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Customer\Block\Adminhtml\Group\Edit\Form" type="Born\CustomerGroup\Override\Magento\Customer\Block\Adminhtml\Group\Edit\Form"/>
+
+    <type name="Magento\Customer\Model\ResourceModel\Group">
+        <plugin name="born_beforesave_customergroup" type="Born\CustomerGroup\Plugin\Magento\Customer\Model\ResourceModel\Group"/>
+    </type>
+    
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="born_customer_listing_data_source" xsi:type="string">Born\CustomerGroup\Model\ResourceModel\Customer\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Born\CustomerGroup\Model\ResourceModel\Customer\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">customer_entity</argument>
+            <argument name="eventPrefix" xsi:type="string">born_customer_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">born_customer_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Born\CustomerGroup\Model\ResourceModel\Customer</argument>
+        </arguments>
+    </type>
+</config>

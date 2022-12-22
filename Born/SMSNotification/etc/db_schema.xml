@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="sms_template" resource="default" engine="innodb" comment="Inchoo Table 1">
+        <column name="id" xsi:type="int" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column name="template_name" xsi:type="varchar" comment="Name"/>
+       <column name="template_content" xsi:type="text" comment="Content"/>
+       <column name="event_type" xsi:type="text" comment="event type"/>
+       
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+   
+
+</schema>

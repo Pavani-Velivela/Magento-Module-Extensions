@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">born_geoip_country_form.country_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Country Mapping</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save" class="Born\GeoIp\Block\Adminhtml\Country\Edit\Buttons\SaveButton"/>
+            <button name="reset" class="Born\GeoIp\Block\Adminhtml\Country\Edit\Buttons\ResetButton"/>
+            <button name="delete" class="Born\GeoIp\Block\Adminhtml\Country\Edit\Buttons\DeleteButton"/>
+            <button name="back" class="Born\GeoIp\Block\Adminhtml\Country\Edit\Buttons\BackButton"/>
+        </buttons>
+        <namespace>born_geoip_country_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>born_geoip_country_form.born_geoip_country_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="born_geoip_country_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="geoip/country/save"/>
+        </settings>
+        <dataProvider class="Born\GeoIp\Model\Country\DataProvider" name="born_geoip_country_form_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label>Country Mapping</label>
+        </settings>
+        <field name="id" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">country</item>                   
+                </item>
+            </argument>
+            <settings>
+             <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>id</dataScope>
+            </settings>
+        </field>
+       <field name="countries" sortOrder="20" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">country</item>
+                     <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                      <item name="elementTmpl" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                       <item name="filterOptions" xsi:type="boolean">true</item>
+                       <item name="showCheckbox" xsi:type="boolean">true</item>
+                       <item name="chipsEnabled" xsi:type="boolean">true</item>
+                      <item name="multiple" xsi:type="boolean">false</item>
+                     <item name="disableLabel" xsi:type="boolean">true</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Countries</label>
+                <dataScope>countries</dataScope>
+            </settings>
+             <formElements>
+           <select>
+           <settings>
+           <options class="Magento\Directory\Model\Config\Source\Country"/>
+           </settings>
+           </select>
+           </formElements>
+        </field>
+        <field name="redirect_in"  sortOrder="20" formElement="select">
+        <argument name="data" xsi:type="array">
+           <item name="config" xsi:type="array">
+                <item name="componentType" xsi:type="string">field</item>
+                <item name="source" xsi:type="string">redirect_in</item>
+                <item name="label" xsi:type="string">Redirect In</item>
+                <item name="filterOptions" xsi:type="boolean">true</item>
+            </item>
+        </argument>
+        <settings>
+        <validation>
+          <rule name="required-entry" xsi:type="boolean">true</rule>
+        </validation>
+        <dataType>text</dataType>
+        <label translate="true">Redirect In</label>
+        <visible>true</visible>
+        <dataScope>redirect_in</dataScope>
+
+        <switcherConfig>
+      <rules>
+            <rule name="0">
+                <value>0</value>
+                <actions>
+                    <action name="0">
+                        <target>geoip_country_form.geoip_country_form.general.store</target>
+                        <callback>show</callback>
+                    </action>
+                    <action name="1">
+                        <target>geoip_country_form.geoip_country_form.general.external_link</target>
+                        <callback>hide</callback>
+                    </action>
+                    <action name="2">
+                        <target>geoip_country_form.geoip_country_form.general.redirect_to</target>
+                        <callback>show</callback>
+                    </action>
+
+                </actions>
+            </rule>
+            <rule name="1">
+                <value>1</value>
+                <actions>
+                    <action name="0">
+                        <target>geoip_country_form.geoip_country_form.general.store</target>
+                        <callback>hide</callback>
+                    </action>
+                    <action name="1">
+                        <target>geoip_country_form.geoip_country_form.general.external_link</target>
+                        <callback>show</callback>
+                    </action>
+                    <action name="2">
+                        <target>geoip_country_form.geoip_country_form.general.redirect_to</target>
+                        <callback>hide</callback>
+                    </action>
+                </actions>
+            </rule>
+        </rules>
+
+<enabled>true</enabled>
+
+</switcherConfig>
+      </settings>
+
+      <formElements>
+        <select>
+          <settings>
+            <options>
+              <option name="0" xsi:type="array">
+                <item name="value" xsi:type="number">0</item>
+                <item name="label" xsi:type="string" translate="true">Store</item>
+              </option>
+              <option name="1" xsi:type="array">
+                <item name="value" xsi:type="number">1</item>
+                <item name="label" xsi:type="string" translate="true">External link</item>
+              </option>
+            </options>
+          </settings>
+        </select>
+      </formElements>
+    </field>
+<field name="redirect_to">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Redirect To</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                     <item name="formElement" xsi:type="string">select</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="source" xsi:type="string">name</item>
+                    <item name="dataScope" xsi:type="string">redirect_to</item>
+                </item>
+
+                <item name="options" xsi:type="object">Magento\Store\Ui\Component\Listing\Column\Store\Options</item>
+     </argument>
+        </field>
+    <field name="external_link" formElement="input">
+      <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                   <item name="label" xsi:type="string">External Url</item>
+                   <item name="dataType" xsi:type="string">text</item>
+                   <item name="source" xsi:type="string">store</item>
+                   <item name="breakLine" xsi:type="boolean">true</item>
+                   <item name="Value" xsi:type="string">1</item>
+                   <item name="visible" xsi:type="boolean">false</item>
+            </item>
+        </argument>
+      <settings>
+        <validation>
+          <rule name="required-entry" xsi:type="boolean">true</rule>
+        </validation>
+        <dataType>text</dataType>
+        <label translate="true">Redirect to</label>
+        <visible>true</visible>
+        <dataScope>redirect_to</dataScope>
+      </settings>
+    </field>
+    </fieldset>
+</form>

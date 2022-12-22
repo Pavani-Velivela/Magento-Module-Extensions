@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+  <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="born_smsnotification_templates_listing_data_source" xsi:type="string">Born\SMSNotification\Model\ResourceModel\Templates\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    
+    <virtualType name="Born\SMSNotification\Model\ResourceModel\Templates\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">sms_template</argument>
+            <argument name="eventPrefix" xsi:type="string">born_smsnotification_templates_collection</argument>
+            <argument name="eventObject" xsi:type="string">born_smsnotification_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Born\SMSNotification\Model\ResourceModel\Templates</argument>
+        </arguments>
+    </virtualType>
+</config>

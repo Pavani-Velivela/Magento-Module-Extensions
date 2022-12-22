@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">born_customer_listing.born_customer_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="reindex">
+                <url path="*/*/assign"/>
+                <class>secondary</class>
+                <label translate="true">Assign</label>
+            </button>
+            <button name="refresh">
+                <url path="*/*/reindex"/>
+                <class>primary</class>
+                <label translate="true">Refresh</label>
+            </button>
+        </buttons>
+        <spinner>spinner_columns</spinner>
+        <deps>
+            <dep>born_customer_listing.born_customer_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="born_customer_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">entity_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Magento_Backend::content</aclResource>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="born_customer_listing_data_source">
+            <settings>
+                <requestFieldName>entity_id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <listingToolbar name="listing_top">
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+
+    <columns name="spinner_columns">
+        <!-- <selectionsColumn name="ids">
+            <settings>
+                <indexField>id</indexField>
+            </settings>
+        </selectionsColumn> -->
+        <column name="entity_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+                <sorting>desc</sorting>
+            </settings>
+        </column>
+        <column name="email">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Email</label>
+            </settings>
+        </column>
+        <column name="firstname">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Firstname</label>
+            </settings>
+        </column>
+        <column name="lastname">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Lastname</label>
+            </settings>
+        </column>
+        <column name="current_customer_group_code">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Current Group</label>
+            </settings>
+        </column>
+        <column name="born_last_month_purchase">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Last Month Purchase</label>
+            </settings>
+        </column>
+        <column name="suggested_customer_group_code">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Suggested Group</label>
+            </settings>
+        </column>
+    </columns>
+</listing>

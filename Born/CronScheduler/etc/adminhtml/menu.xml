@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Born_CronScheduler::cron" title="Cron Scheduler" module="Born_CronScheduler" sortOrder="51" resource="Born_CronScheduler::cron"/>
+        <add id="Born_CronScheduler::schedule" title="Cron Scheduler" module="Born_CronScheduler" sortOrder="10" action="cronscheduler/schedule/index" resource="Born_CronScheduler::schedule" parent="Born_CronScheduler::cron"/>
+        <add id="Born_CronScheduler::job" title="Cron Job" module="Born_CronScheduler" sortOrder="10" action="cronscheduler/job/index" resource="Born_CronScheduler::job" parent="Born_CronScheduler::cron"/>
+        
+    </menu>
+</config>

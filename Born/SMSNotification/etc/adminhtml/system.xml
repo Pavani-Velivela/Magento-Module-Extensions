@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+     <system>
+        <tab id="Born" translate="label" sortOrder="20">
+           <label>Born</label>
+        </tab>
+        <section id="smsnotification" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+           <class>separator-top</class>
+           <label>SMS Notification</label>
+           <tab>Born</tab>
+           <resource>Born_SMSNotification::configuration</resource>
+           <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                     <label>Enable SMS Notifications</label>
+                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+          </group>
+   
+        <group id="adminsms" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Admin SMS Configuration</label>
+                <field id="notify" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" >
+                     <label>Notify Admin by SMS</label>
+                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+               <field id="phone" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" >
+                     <label>Admin Phone Number</label>
+                   <comment>Please enter Admin number with country code if country code is required by SMS Service Provider and you can add multiple numbers. eg. +123XXXXXXX</comment> 
+                </field>
+                  <field sortOrder="1" id="adminevents" showInStore="1" showInWebsite="1" showInDefault="10" type="multiselect" translate="label" >
+             <label>Admin Events </label>
+             <source_model>Born\SMSNotification\Model\Config\adminevents</source_model>
+             </field>
+          </group>
+
+           <group id="customersms" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Customer SMS Configuration</label>
+             <field sortOrder="1" id="customerevents" showInStore="1" showInWebsite="1" showInDefault="10" type="multiselect" translate="label" >
+             <label>Customer Events </label>
+             <source_model>Born\SMSNotification\Model\Config\customerevents</source_model>
+             </field>
+              <field id="customer" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <label>Select Number for SMS</label>
+             <source_model>Born\SMSNotification\Model\Config\numberforsms</source_model>
+              </field>
+                <depends>
+                <field id="SMSNotification/general/enable">1</field>
+            </depends>
+           </group>
+
+            <group id="twilio" translate="label" type="text" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30">
+                <label>Twilio Admin Configuration</label>
+                 
+                 <field id="adminusername" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
+                    <label>User Name</label>
+                </field>
+                 <field id="adminpassword" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
+                    <label>Password</label>
+                </field>
+                 <field id="msgserviceid" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
+                    <label>MessagingServiceSid</label>
+                </field>
+                <depends>
+                <field id="SMSNotification/general/enable">1</field>
+            </depends>
+                
+            </group>
+       </section>
+     </system>
+</config>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<config xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<system>
+<tab sortOrder="45" translate="label" id="born">
+<label>Born</label>
+</tab>
+<section sortOrder="10" translate="label" id="wordpress" showInStore="1" showInWebsite="1" showInDefault="1" type="text">
+<class>separator-top</class>
+<label>wordpress</label>
+<tab>Born</tab>
+<resource>Born_WordpressBlog::configuration</resource>
+<group sortOrder="10" translate="label" id="general" showInStore="1" showInWebsite="1" showInDefault="1" type="text">
+<label>Wordpress Configuration</label>
+  <field id="url" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>URL</label>
+                   
+                </field>
+ <field id="display_category" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <label>Display Category</label>
+                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+              
+          </field>
+</group>
+</section>
+</system>
+</config>

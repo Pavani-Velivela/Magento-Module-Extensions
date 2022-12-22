@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">born_smsnotification_templates_form.templates_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Sms Templates Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save" class="Born\SMSNotification\Block\Adminhtml\Templates\Edit\Buttons\SaveButton"/>
+            <button name="reset" class="Born\SMSNotification\Block\Adminhtml\Templates\Edit\Buttons\ResetButton"/>
+            <button name="delete" class="Born\SMSNotification\Block\Adminhtml\Templates\Edit\Buttons\DeleteButton"/>
+            <button name="back" class="Born\SMSNotification\Block\Adminhtml\Templates\Edit\Buttons\BackButton"/>
+        </buttons>
+        <namespace>born_smsnotificaion_templates_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>born_smsnotification_templates_form.born_smsnotification_templates_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="born_smsnotification_templates_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="smsnotification/templates/save"/>
+        </settings>
+        <dataProvider class="Born\SMSNotification\Model\Templates\DataProvider" name="born_smsnotification_templates_form_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label>Sms Templates Information</label>
+        </settings>
+        <field name="id" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">templates</item>                   
+                </item>
+            </argument>
+            <settings>
+             <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>id</dataScope>
+            </settings>
+        </field>
+        <field name="template_name" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">templates</item>
+                    <item name="notice" xsi:type="string" translate="true">This field is only admin use </item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Template Name</label>
+                <dataScope>template_name</dataScope>
+            </settings>
+        </field>
+         <field name="template_content" sortOrder="50" formElement="textarea">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">templates</item>
+                    <item name="notice" xsi:type="string" translate="true">Enter your default message</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Template Content</label>
+                <dataScope>template_content</dataScope>
+            </settings>
+        </field>
+        <field name="event_type" sortOrder="20" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">templates</item> 
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Event Type</label>
+                <dataScope>event_type</dataScope>
+            </settings>
+           <formElements>
+           <select>
+           <settings>
+          <options class="Born\SMSNotification\Model\Config\customerevents"/>
+           </settings>
+           </select>
+           </formElements>
+           </field>
+           <field name="storeview" formElement="multiselect">
+           <argument xsi:type="array" name="data">
+           <item xsi:type="array" name="config">
+           <item xsi:type="string" name="source">block</item>
+           </item>
+           </argument>
+           <settings>
+           <validation>
+           <rule xsi:type="boolean" name="required-entry">true</rule>
+           </validation>
+           <dataType>int</dataType>
+           <label translate="true">Store View</label>
+           <dataScope>store_id</dataScope>
+           </settings>
+           <formElements>
+           <multiselect>
+           <settings>
+           <options class="Magento\Cms\Ui\Component\Listing\Column\Cms\Options"/>
+           </settings>
+           </multiselect>
+           </formElements>
+           </field>
+    </fieldset>
+</form>

@@ -1,0 +1,22 @@
+{
+    "admin_user": {
+        "column": {
+            "pincode": true
+        }
+    },
+    "sales_order": {
+        "column": {
+            "delivery_boy": true
+        }
+    },
+    "sales_order_grid": {
+        "column": {
+            "delivery_boy": true
+        }
+    },
+    "quote": {
+        "column": {
+            "delivery_boy": true
+        }
+    }
+}

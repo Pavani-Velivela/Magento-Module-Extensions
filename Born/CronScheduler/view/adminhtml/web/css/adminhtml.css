@@ -1,0 +1,7 @@
+.admin__menu .level-0.item-cron > a:before {
+    content: url('../images/icon.png');
+
+}
+li#menu-born_cronscheduler-cron > a > span {
+    display: none;
+}

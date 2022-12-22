@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    
+    <event name="sales_order_place_after">
+        <observer name="debug_order_place" instance="Born\SMSNotification\Observer\OrderPlaceAfter" />
+    </event>
+
+   <event name="customer_register_success">
+        
+        <observer name="customer_register" instance="Born\SMSNotification\Observer\AddCustomerData" />
+    </event>
+    
+    <event name="order_cancel_after">
+        <observer name="admin_order_cancle" instance="Born\SMSNotification\Observer\AdminOrderCancle"/>
+    </event>
+
+    <event name="sales_order_invoice_register">
+        <observer name="admin_invoice_order" instance="Born\SMSNotification\Observer\AdminInvoiceOrder"/>
+    </event>
+
+    <event name="sales_order_shipment_save_after">
+        <observer name="admin_shipment_order" instance="Born\SMSNotification\Observer\AdminShipmentOrder"/>
+    </event>
+
+    <event name="sales_order_creditmemo_save_after">
+        <observer name="admin_creditmemo_order" instance="Born\SMSNotification\Observer\AdminCreditmemoOrder"/>
+    </event>
+<!-- 
+    <event name="sales_order_shipment_track_save_after">
+        <observer name="admin_shipment_order" instance="Born\SMSNotification\Observer\AdminShipmentTracking"/>
+    </event> -->
+
+    <event name="controller_action_postdispatch_contact_index_post">
+        <observer name="contact" instance="Born\SMSNotification\Observer\Contact" />
+    </event>
+
+
+
+
+
+</config>

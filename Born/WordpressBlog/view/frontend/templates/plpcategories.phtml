@@ -1,0 +1,26 @@
+<h3>Category Listing Page</h3>
+<form action="" method="post">
+<table border="3">
+	<tr>
+		<th>Id</th>
+		<th>Name</th>
+		<th>created_at</th>
+		<th>updated_at</th>
+
+	</tr>
+	<?php
+	    foreach ($block->getpagename() as $item) {
+		?>
+		<tr>
+			<td><?= $item->getId() ?></td>
+			<td><a href="<?php echo $block->getUrl('wordpress/post/index', 
+			['_current' => true, '_use_rewrite' => true, '_query' =>['id'=>$item->getId()]]); ?>"><?= $item->getName() ?></a></td>
+				<td><?= $item->getCreated_at() ?></td>
+				<td><?= $item->getUpdated_at() ?></td>
+		</tr>
+		<?php
+	}
+	?>
+</table>
+</form>
+

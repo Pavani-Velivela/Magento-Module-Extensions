@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+     <system>
+        <tab id="Born" translate="label" sortOrder="20">
+           <label>Born</label>
+        </tab>
+        <section id="geoip" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+           <class>separator-top</class>
+           <label>GeoIp</label>
+           <tab>Born</tab>
+           <resource>Born_GeoIp::configuration</resource>
+           <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <label>Enable Module</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="firstvisit" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <label>First visit redirect only</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                <comment>WARNING!If you select "No" visitors will be not able to change storeview/currency</comment>
+                </field>
+          </group>
+           <group id="restriction" translate="label" type="text" sortOrder="10" showInStore="1" showInWebsite="1" showInDefault="1">
+                <label>Restriction</label>
+                <field id="logic" translate="label" type="select" sortOrder="2" showInStore="1" showInWebsite="1" showInDefault="1" >
+                <label>Restriction Logic</label>
+                <source_model>Born\GeoIp\Model\Config\logic</source_model>
+                </field>
+                <field id="user" translate="label" type="textarea" sortOrder="10" showInStore="1" showInWebsite="1" showInDefault="1" >
+                <label>User Agents to Ignore</label>
+                <comment>Comma seprated,for eg(googlebot,yahoo,msnbot)</comment>
+                </field>
+                <field id="ip" translate="label" type="textarea" sortOrder="10" showInStore="1" showInWebsite="1" showInDefault="1" >
+                <label>Ignore IP</label>
+                <comment>Please specify each Ip on a separate line</comment>
+                </field>
+                </group>
+                <group id="restrictionip" translate="label" type="text" sortOrder="10" showInStore="1" showInWebsite="1" showInDefault="1">
+                <label>Restriction IP</label>
+                <field id="restrictionip" translate="label" type="textarea" sortOrder="10" showInStore="1" showInWebsite="1" showInDefault="1" >
+                <label>Restriction IP</label>
+                <comment>Please specify each IP on a separate line. We will navigate this IPs 404 page.</comment>
+                </field>
+          </group>
+          <group id="testmode" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Test Mode</label>
+                <field id="test" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <label>Enable Test Mode</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="ipaddress" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <label>IP Address</label>
+                <comment>To Test Module with considering different ip of different countries </comment>
+                </field>
+               
+          </group>
+       </section>
+     </system>
+</config>

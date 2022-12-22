@@ -1,0 +1,19 @@
+<h3>Posts Listing Page</h3>
+
+<table border="3">
+	<tr>
+		<th>Id</th>
+		<th>Title</th>
+
+	</tr>
+	<?php
+	    foreach ($block->getpagetitle() as $item) {
+		?>
+		<tr>
+			<td><?= $item->getId() ?></td>
+			<td><a href="<?php echo $block->getUrl('wordpress/post/content', ['_current' => true, '_use_rewrite' => true, '_query' =>['id'=>$item->getId()]]); ?>"><?= $item->getTitle() ?></a></td>
+		</tr>
+		<?php
+	}
+	?>
+</table>

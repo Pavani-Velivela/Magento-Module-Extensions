@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="countrymapping" resource="default" engine="innodb" comment="Inchoo Table 1">
+        <column name="id" xsi:type="int" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column name="countries" xsi:type="varchar" comment="countries"/>
+       <column name="redirectin" xsi:type="text" comment="redirectin"/>
+       <column name="redirectto" xsi:type="text" comment="redirectto"/>
+       
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+    
+    <table name="currencymapping" resource="default" engine="innodb" comment="Inchoo Table 1">
+        <column name="id" xsi:type="int" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column name="countries" xsi:type="varchar" comment="countries"/>
+       <column name="currency" xsi:type="text" comment="currency"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+
+</schema>

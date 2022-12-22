@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="wordpress_category" resource="default" engine="innodb" comment="Inchoo Table 1">
+        <column name="id" xsi:type="int" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column name="name" xsi:type="varchar" comment="Name"/>
+        <column name="created_at" xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="false" comment="created_at"/>
+       <column name="updated_at" xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="true" comment="updated_at"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+    <table name="wordpress_post" resource="default" engine="innodb" comment="Inchoo Table 1">
+        <column name="id" xsi:type="int" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column name="title" xsi:type="varchar" comment="Name"/>
+        <column name="description" xsi:type="text" comment="Description"/>
+         <column name="category_id" xsi:type="int" padding="10" unsigned="true" nullable="false"   comment="category_id"/>
+         <column name="cms_page_id" xsi:type="int" nullable="true"  comment="cms_page_id"/>
+          <column name="status" xsi:type="tinyint" default="1" comment="created_at"/>
+         <column name="created_at" xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="false" comment="created_at"/>
+       <column name="updated_at" xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="true" comment="updated_at"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="wordpress_post_category_id_wordpress_categoryid" table="wordpress_post" 
+        column="category_id" referenceTable="wordpress_category" referenceColumn="id" onDelete="CASCADE"/>
+    </table>
+
+</schema>

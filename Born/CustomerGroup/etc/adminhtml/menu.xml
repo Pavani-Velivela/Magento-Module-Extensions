@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Born_CustomerGroup::born"
+            title="Customer Group"
+            module="Born_CustomerGroup"
+            sortOrder="10"
+            parent="Born_Born::born"
+            resource="Born_Born::born"/>
+
+        <add id="Born_CustomerGroup::customers"
+            title="Customers"
+            module="Born_CustomerGroup"
+            sortOrder="10"
+            parent="Born_CustomerGroup::born"
+            action="borncustomergroup/customer/index"
+            resource="Born_Born::born"/>
+    </menu>
+</config>

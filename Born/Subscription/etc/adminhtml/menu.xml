@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>           
+                               
+        <add id="Born_Subscription::born" 
+            title="Subscription" 
+            module="Born_Subscription" 
+            sortOrder="45" 
+            parent="Born_Born::born"
+            resource="Born_Subscription::born" />
+
+            <add id="Born_Subscription::subscription" 
+            title="Subscription"
+            module="Born_Subscription" 
+            sortOrder="10"
+            action="subscription/subscription/index" 
+            parent="Born_Subscription::born" 
+            resource="Born_Subscription::subscription"/>
+     
+            <add id="Born_Subscription::configuration" title="Configuration" module="Born_Subscription" sortOrder="99" parent="Born_Subscription::born" 
+        action="adminhtml/system_config/edit/section/subscription" resource="Born_Subscription::configuration"/> 
+    </menu>
+</config>

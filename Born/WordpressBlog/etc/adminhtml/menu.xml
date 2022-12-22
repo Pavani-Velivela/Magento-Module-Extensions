@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>    
+        
+
+        <add id="Born_WordpressBlog::word_press" 
+            title="Wordpress" 
+            module="Born_WordpressBlog" 
+            sortOrder="450" 
+            parent="Magento_Backend::content" 
+            resource="Born_WordpressBlog::word_press" />
+
+        
+        <add id="Born_WordpressBlog::categories" 
+            title="Categories "
+            module="Born_WordpressBlog" 
+            sortOrder="10"
+            action="blog/categories/category" 
+            parent="Born_WordpressBlog::word_press" 
+            resource="Born_WordpressBlog::categories" />
+       
+        <add id="Born_WordpressBlog::posts" 
+            title="Posts" 
+            module="Born_WordpressBlog" 
+            sortOrder="20"
+            action="blog/posts/posts" 
+            parent="Born_WordpressBlog::word_press"  
+            resource="Born_WordpressBlog::posts" />
+    </menu>
+</config>

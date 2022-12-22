@@ -1,0 +1,8 @@
+{
+    "cron_schedule": {
+        "column": {
+            "instance": true,
+            "function_name": true
+        }
+    }
+}

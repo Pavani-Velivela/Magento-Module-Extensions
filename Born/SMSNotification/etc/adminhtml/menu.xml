@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>    
+
+      <add id="Born_SMSNotification::born" 
+            title="SMS Notification" 
+            module="Born_SMSNotification" 
+            sortOrder="90"
+            dependsOnModule="Born_SMSNotification"
+            parent="Born_Born::born" 
+            resource="Born_Born::born" />
+ 
+          <add id="Born_SMSNotification::smsnotification" 
+            title="SMS Template" 
+            module="Born_SMSNotification" 
+            sortOrder="90"
+            dependsOnModule="Born_SMSNotification"
+            action="smsnotification/templates/index"
+            parent="Born_SMSNotification::born"
+            resource="Born_SMSNotification::smsnotification" />
+          
+       <!-- <add id="Born_SMSNotification::smstemplate" 
+            title="SMS Template" 
+            module="Born_SMSNotification" 
+            sortOrder="50" 
+             dependsOnModule="Born_SMSNotification"
+            action="smsnotification/templates/index"
+            parent="Born_SMSNotification::smsnotification"
+            resource="Born_SMSNotification::smstemplate" />
+           -->
+      <add id="Born_SMSNotification::configuration" title="Configuration" module="Born_SMSNotification" sortOrder="99" parent="Born_SMSNotification::smsnotification" 
+        action="adminhtml/system_config/edit/section/smsnotification" resource="Born_SMSNotification::configuration"/> 
+   
+    </menu>
+</config>
+
+
+

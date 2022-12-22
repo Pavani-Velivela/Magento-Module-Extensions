@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+     
+   <table name="cron_schedule">
+       <column xsi:type="varchar" name="instance" nullable="true" comment="Instance" />
+       <column xsi:type="varchar" name="function_name" nullable="true" comment="Function Name" />
+   </table>
+   
+</schema>

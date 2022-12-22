@@ -1,0 +1,13 @@
+{
+    "wordpress_category": {
+        "column": {
+            "id": true,
+            "template_name": true,
+            "template_content": true,
+            "event_type": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

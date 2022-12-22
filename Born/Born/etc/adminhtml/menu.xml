@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<menu>
+<add title="Born" resource="Born_Born::born" sortOrder="45" module="Born_Born" id="Born_Born::born"/>
+</menu>
+</config>

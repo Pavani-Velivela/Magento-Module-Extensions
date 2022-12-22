@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route method="GET" url="/V1/sampleapicall">
+        <service class="Born\WordpressBlog\Api\SampleApiInterface" method="sayHello"/>
+        <resources>
+             <resource ref="anonymous"/><!--any anonymous user can access  resource-->
+                           <!-- <resource ref="Magento_Sales:access_sales"/> -->
+               <!-- <resource id="Born_WordpressBlog::post"/>
+                <resource id="Born_WordpressBlog::categories"/> like we can use this resources too-->
+        </resources>
+    </route>
+       <route method="GET" url="/V1/getbyid">
+        <service class="Born\WordpressBlog\Api\WordpressPostRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+         <route method="GET" url="/V1/getposts">
+        <service class="Born\WordpressBlog\Api\WordpressPostRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route method="DELETE" url="/V1/post/deletebyid">
+        <service class="Born\WordpressBlog\Api\WordpressPostRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+   <route method="POST" url="/V1/updatebyid">
+        <service class="Born\WordpressBlog\Api\WordpressPostRepositoryInterface" method="updateById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+   <route method="POST" url="/V1/savedata">
+        <service class="Born\WordpressBlog\Api\WordpressPostRepositoryInterface" method="saveData"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+</routes>

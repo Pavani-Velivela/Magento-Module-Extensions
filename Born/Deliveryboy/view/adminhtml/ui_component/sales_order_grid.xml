@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+     <!--<item name="buttons" xsi:type="array">
+
+         <item name="import" xsi:type="array">
+            <item name="name" xsi:type="string">import</item>
+            <item name="label" xsi:type="string" translate="true">Import Storelocatore</item>
+            <item name="class" xsi:type="string">secondary</item>
+            <item name="url" xsi:type="string">*/dataimport/importdata</item>
+            <item name="sortOrder" xsi:type="number">20</item>
+        </item>
+
+    </item>
+    -->
+   <columns name="sales_order_columns">
+       <column name="delivery_boy" sortOrder="300">
+           <settings>
+               <filter>text</filter>
+               <label translate="true">Deliveryboy</label>
+           </settings>
+       </column>
+   </columns>
+</listing>

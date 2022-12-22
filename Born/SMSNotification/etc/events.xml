@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<event name="customer_register_success">
+<observer instance="Born\SMSNotification\Observer\Newregistration" name="customer_register"/>
+</event>
+
+<event name="sales_order_place_after">
+<observer name="order_place" instance="Born\SMSNotification\Observer\Orderplaceafter"/>
+</event>
+
+<event name="order_cancel_after">
+<observer name="admin_order_cancel" instance="Born\SMSNotification\Observer\Adminordercancel"/>
+</event>
+
+<event name="sales_order_invoice_pay">
+<observer name="admin_invoice_order" instance="Born\SMSNotification\Observer\Admininvoiceorder"/>
+</event>
+
+<event name="sales_order_creditmemo_save_after">
+<observer name="admin_creditmemo_order" instance="Born\SMSNotification\Observer\Admincreditmemoorder"/>
+</event>
+
+<event name="sales_order_shipment_save_before">
+<observer name="admin_shipment_order" instance="Born\SMSNotification\Observer\Adminshipmentorder"/>
+</event>
+
+<event name="sales_order_shipment_track_save_after">
+<observer name="admin_shipment_track" instance="Born\SMSNotification\Observer\Adminshipmenttrack"/>
+</event>
+
+</config>

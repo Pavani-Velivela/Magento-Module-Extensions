@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+      <geoip>
+            <general>
+                <enable>1</enable>
+                <firstvisit>1</firstvisit>
+            </general>
+       
+           <restriction>
+                <logic>All URLs</logic>
+           </restriction>
+           <testmode>
+                <test>1</test>
+           </testmode>
+      </geoip> 
+    </default>
+</config>

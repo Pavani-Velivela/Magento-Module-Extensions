@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+  <system>
+    <tab id="Born" translate="label" sortOrder="20">
+      <label>Born</label>
+    </tab>
+      <section id="subscription" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+        <class>separator-top</class>
+          <label>Subscription</label>
+          <tab>Born</tab>
+          <resource>Born_Subscription::configuration</resource>
+
+          <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+        <label>General Configuration</label>
+          <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0" >
+           <label>Enable Subscription</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+          </field>
+
+          <field id="interval" translate="label" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Manage Subscription Interval</label>
+                    <frontend_model>Born\Subscription\Block\Adminhtml\Form\Field\SubscriptionIntervals</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+          </field>
+        
+           <field id="cron" translate="label" type="time" showInDefault="1" showInWebsite="1" showInStore="0" sortOrder="40">
+                    <label>Cron Job Start Time </label>
+                </field>
+
+        </group>
+
+
+      </section>
+    </system>
+  </config>

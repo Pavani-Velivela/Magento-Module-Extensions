@@ -1,0 +1,21 @@
+type Query {
+    wordpress_post(
+        pageSize: Int = 5 @doc(description:"this is to set pagesize which accepts integer")
+        currentPage: Int = 1 @doc(description:"this is to set currentpage which accepts integer")
+    ):[WordpressPost]
+    @resolver(class:"Born\\WordpressBlog\\Model\\Resolver\\PostResolver")
+    @cache(cacheIdentity:"Born\\WordpressBlog\\Model\\Resolver\\Post\\Identity")
+    @doc(description:"GrahpqL for wordpress post")
+}
+   type Mutation{
+        save_wordpress_post( title:String!, description: String): WordpressPost
+             @resolver(class:"Born\\WordpressBlog\\Model\\Resolver\\SavePost")
+             @doc(description:"Retrieve the customer token")
+}
+
+type WordpressPost {
+    id: Int  @doc(description:"It returns id ")
+    title: String  @doc(description:"It returns title")
+    description: String  @doc(description:"It returns description")
+}
+

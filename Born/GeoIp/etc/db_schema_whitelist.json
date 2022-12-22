@@ -1,0 +1,24 @@
+{
+    "countrymapping": {
+        "column": {
+            "id": true,
+            "countries": true,
+            "redirectin": true,
+            "redirectto": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+
+    "currencymapping": {
+        "column": {
+            "id": true,
+            "countries": true,
+            "currency": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

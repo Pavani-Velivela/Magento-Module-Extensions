@@ -1,0 +1,19 @@
+{
+    "subscription": {
+        "column": {
+            "id": true,
+            "customername": true,
+            "productname": true,
+            "payment_method":true,
+            "subscription_period": true,
+            "order_id": true,
+            "next_occurance_date": true,
+            "created_at": true,
+            "updated_at":true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+
+}

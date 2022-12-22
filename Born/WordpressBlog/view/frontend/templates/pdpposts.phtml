@@ -1,0 +1,26 @@
+<h3>Posts Detailed Page</h3>
+
+<table border="5">
+	<tr>
+		<th>Id</th>
+		<th>Title</th>
+        <th>Description</th>
+		<th>Status</th>
+		<th>created_at</th>
+       <th>updated_at</th>
+	</tr>
+	<?php
+	    foreach ($block->getpagedetails() as $item) {
+		?>
+		<tr>
+			<td><?= $item->getId() ?></td>
+			<td><?= $item->getTitle() ?></td>
+            <td><?= $item->getDescription() ?></td>
+			<td><?= $item->getStatus() ?></td>
+			<td><?= $item->getCreated_at() ?></td>
+			<td><?= $item->getUpdated_at() ?></td>
+		</tr>
+		<?php
+	}
+	?>
+</table>
