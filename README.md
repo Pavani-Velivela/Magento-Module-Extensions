@@ -16,6 +16,7 @@ General Configuration
                   Enable SMSNotification YES/NO
                             [store view]
 
+https://imgur.com/sQ7ICJB
 5. Create admin menu to goto CRUD operations of SMS templates like below.
 
 
