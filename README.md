@@ -26,4 +26,4 @@ https://imgur.com/gCnG36D
 
 6. SMS Template form will look like this.
 
-![Alt text](https://imgur.com/oXjzVx1)
+https://imgur.com/oXjzVx1
