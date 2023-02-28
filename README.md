@@ -1,15 +1,16 @@
 # Magento-Module-Extensions
 Projects & Challenges
 SMS Notification Module Extension
-
-1. Create a new module SMSNotification
-2. Sample provider Twillio
-3. This module will send transaction SMS on certain events like
+### Requirements
+Magento Community 2.2.0-2.4.x (CE, EE, ECE, B2B)
+This module provides the SMS notification facility to customers for their orders.
+Sample provider Twillio
+This module will send transaction SMS on certain events like
     New order
     Order status update
     Cancel order
     Etc
-4. Create a store configuration like below
+We need to create store configuration like below for enable the notification facility.
 
 General Configuration
 
@@ -20,10 +21,10 @@ https://imgur.com/sQ7ICJB
 
 https://imgur.com/Oo7ghEA
 
-5. Create admin menu to goto CRUD operations of SMS templates like below.
+Create admin menu to goto CRUD operations of SMS templates like below.
 
 https://imgur.com/gCnG36D
 
-6. SMS Template form will look like this.
+SMS Template form will look like this.
 
 https://imgur.com/oXjzVx1
