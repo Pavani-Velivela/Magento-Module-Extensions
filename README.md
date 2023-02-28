@@ -17,11 +17,13 @@ General Configuration
                             [store view]
 
 https://imgur.com/sQ7ICJB
+
+https://imgur.com/Oo7ghEA
+
 5. Create admin menu to goto CRUD operations of SMS templates like below.
 
-
-
-
+https://imgur.com/gCnG36D
 
 6. SMS Template form will look like this.
 
+![Alt text](https://imgur.com/oXjzVx1)
